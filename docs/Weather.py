@@ -40,14 +40,13 @@ class oWeather :
 
         self.today = (
             "[오늘의 수원대 날씨]"
-            + "\n오전 기온 : " + t_ary[7].encode('utf-8') + ",  " + t_ary[9].encode('utf-8') + "  강수확률 : " + t_ary[11].encode('utf-8')
-            + "\n오후 기온 : " + t_ary[13].encode('utf-8') + ",  " + t_ary[15].encode('utf-8') + "  강수확률 : " + t_ary[17].encode('utf-8')
-            + "\n화성시 측정 날씨입니다."
+            + "\n오전 기온 : " + t_ary[7] + ",  " + t_ary[9] + "  강수확률 : " + t_ary[11]
+            + "\n오후 기온 : " + t_ary[13] + ",  " + t_ary[15] + "  강수확률 : " + t_ary[17]
         )
         
         self.tomorrow = (
             "[내일의 수원대 날씨]"
-            + "\n오전 기온 : " + t_ary[19].encode('utf-8') + ",  " + t_ary[21].encode('utf-8') + "  강수확률 : " + t_ary[23].encode('utf-8')
-            + "\n오후 기온 : " + t_ary[25].encode('utf-8') + ",  " + t_ary[27].encode('utf-8') + "  강수확률 : " + t_ary[29].encode('utf-8')
-            + "\n화성시 측정 날씨입니다."
+            + "\n오전 기온 : " + t_ary[19] + ",  " + t_ary[21] + "  강수확률 : " + t_ary[23]
+            + "\n오후 기온 : " + t_ary[25] + ",  " + t_ary[27] + "  강수확률 : " + t_ary[29]
+            + "\n\n날씨 : 화성시 측정"
         )
