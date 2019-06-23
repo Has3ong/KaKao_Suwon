@@ -23,21 +23,21 @@ o_PhoneBook = oPhoneBook()
 o_BusShuttle = oBusShuttle()
 o_Calendar = oCalendar()
 
-
 # 1day = 86400, 1hour = 3600
+def ThreadingWeather():
+    threading.Timer(43200, ThreadingWeather).start()
+    o_Weather.Update()
+
 def Threading1d():
     threading.Timer(14400, Threading1d).start()
-    o_Weather.Update()
     today = datetime.today().weekday()
     if today > 4:
         return 0
     o_Menu.Update()
 
-
 def Threading1h():
     threading.Timer(3600, Threading1h).start()
     o_Dust.Update()
-
 
 @app.route('/keyboard')
 def Keyboard():
@@ -1017,6 +1017,7 @@ def Message():
 
 
 if __name__ == "__main__":
+    ThreadingWeather()
     Threading1d()
     Threading1h()
     app.run(host='0.0.0.0')
