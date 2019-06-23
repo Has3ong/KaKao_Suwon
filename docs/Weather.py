@@ -43,7 +43,7 @@ class oWeather :
             + "\n오전 기온 : " + t_ary[7] + ",  " + t_ary[9] + "  강수확률 : " + t_ary[11]
             + "\n오후 기온 : " + t_ary[13] + ",  " + t_ary[15] + "  강수확률 : " + t_ary[17]
         )
-        
+
         self.tomorrow = (
             "[내일의 수원대 날씨]"
             + "\n오전 기온 : " + t_ary[19] + ",  " + t_ary[21] + "  강수확률 : " + t_ary[23]
