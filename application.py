@@ -13,6 +13,7 @@ from docs.Weather import oWeather
 from docs.PhoneBook import oPhoneBook
 from docs.BusShuttle import oBusShuttle
 from docs.Calendar import oCalendar
+from docs.Notice import oNotice
 
 app = Flask(__name__)
 
@@ -22,14 +23,21 @@ o_Dust = oDust()
 o_PhoneBook = oPhoneBook()
 o_BusShuttle = oBusShuttle()
 o_Calendar = oCalendar()
+o_Notice = oNotice()
 
 # 1day = 86400, 1hour = 3600
+
+def Threading1d():
+    threading.Timer(86400, Threading1d).start()
+    o_Notice.Update()
+
 def ThreadingWeather():
     threading.Timer(43200, ThreadingWeather).start()
     o_Weather.Update()
 
-def Threading1d():
-    threading.Timer(14400, Threading1d).start()
+
+def Threading4h():
+    threading.Timer(14400, Threading4h).start()
     today = datetime.today().weekday()
     if today > 4:
         return 0
@@ -384,7 +392,7 @@ def Message():
         }
     elif content == u"종강일 계산해줘":
         nowtime = datetime.now()
-        endtime = datetime(2019, 6, 24, 0, 0, 0)
+        endtime = datetime(2019, 12, 16, 0, 0, 0)
 
         d_days = (endtime - nowtime).days
         dataSend = {
@@ -986,6 +994,21 @@ def Message():
                 ]
             }
         }
+    elif content == u"공지사항 알려줘":
+        dataSend = {
+            "version" : "2.0",
+            "template": {
+                "outputs" : [
+                    {
+                        "simpleText" : {
+                            "text" : "공지사항 개발하고 있습니다."
+                        }
+                    }
+                ]
+            }
+        }
+        return jsonify(dataSend)
+
     elif content == u"개발중":
         dataSend = {
             "version": "2.0",
@@ -1020,4 +1043,5 @@ if __name__ == "__main__":
     ThreadingWeather()
     Threading1d()
     Threading1h()
+    Threading4h()
     app.run(host='0.0.0.0')
