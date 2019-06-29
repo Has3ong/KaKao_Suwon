@@ -4,7 +4,7 @@
 <img src ='https://img.shields.io/github/license/Has3ong/KaKao_Suwon.svg'>
 </div>
 
-# 수원대학교 카카오 챗봇 '수원대학교 알림이'
+# :four_leaf_clover:수원대학교 카카오 챗봇 '수원대학교 알림이'
 
 ## 개발환경
 
