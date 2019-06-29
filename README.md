@@ -1,3 +1,9 @@
+<div>
+<img src ='https://img.shields.io/badge/python-3.6.5-green.svg'>
+<img src ='https://img.shields.io/badge/Flask-1.0.3-blue.svg'>
+<img src ='https://img.shields.io/github/license/Has3ong/KaKao_Suwon.svg'>
+</div>
+
 # 수원대학교 카카오 챗봇 '수원대학교 알림이'
 
 ## 개발환경
