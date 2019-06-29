@@ -11,3 +11,9 @@
 - https://pf.kakao.com/_pGVQj 클릭 후 친구 추가
 
 ## 기능
+
+## 개발자
+
+- Kim Eun Hee
+- Kim Ha Seong
+- Cha Yu Seung
