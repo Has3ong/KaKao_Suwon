@@ -37,7 +37,6 @@ def ThreadingWeather():
     threading.Timer(43200, ThreadingWeather).start()
     o_Weather.Update()
 
-
 def Threading4h():
     threading.Timer(14400, Threading4h).start()
     today = datetime.today().weekday()
@@ -133,9 +132,9 @@ def Message():
                         "messageText": "학사일정"
                     },
                     {
-                        "label": "개발중",
+                        "label": "공지사항",
                         "action": "message",
-                        "messageText": "개발중"
+                        "messageText": "공지사항"
                     }
                 ]
             }
@@ -1029,44 +1028,28 @@ def Message():
                     {
                         "listCard": {
                             "header" : {
-                                "title" : "수원대학교 공지사항을 소개합니다.",
-                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=-eu90FRT1mUI5U8ZfBLyu-KBEQXB_1LN"
+                                "title" : "수원대학교 공지사항",
+                                "imageUrl" : "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
                             },
-                            "items" : [
+                            "items":[
                                 {
-                                    "title": o_Notice.res[0],
-                                    "descrption" : "",
-                                    "imageUrl" : "",
-                                    "link" : {
-                                        "web": ""
-                                    }
+                                    "title" : o_Notice.res[0],
+                                    "description" : "http://www.suwon.ac.kr/?menuno=674"
                                 },
                                 {
-                                    "title": o_Notice.res[1]
+                                    "title" : o_Notice.res[1]
                                 },
                                 {
-                                    "title": o_Notice.res[2]
+                                    "title" : o_Notice.res[2]
                                 },
                                 {
-                                    "title": o_Notice.res[3]
+                                    "title" : o_Notice.res[3]
                                 },
                                 {
-                                    "title": o_Notice.res[4]
+                                    "title" : o_Notice.res[4]
                                 },
-                                {
-                                    "title": o_Notice.res[5]
-                                },
-                                {
-                                    "title": o_Notice.res[6]
-                                },
-                                {
-                                    "title": o_Notice.res[7]
-                                },
-                                {
-                                    "title": o_Notice.res[8]
-                                }
                             ]
-                         }
+                        }
                     }
                 ]
             }
