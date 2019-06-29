@@ -14,6 +14,7 @@ from docs.PhoneBook import oPhoneBook
 from docs.BusShuttle import oBusShuttle
 from docs.Calendar import oCalendar
 from docs.Notice import oNotice
+from docs.sNotice import sNotice
 
 app = Flask(__name__)
 
@@ -24,6 +25,7 @@ o_PhoneBook = oPhoneBook()
 o_BusShuttle = oBusShuttle()
 o_Calendar = oCalendar()
 o_Notice = oNotice()
+s_Notice = sNotice()
 
 # 1day = 86400, 1hour = 3600
 
@@ -79,7 +81,7 @@ def Message():
                     {
                         "label": "학교정보",
                         "action": "message",
-                        "messageText": "학교정보 알려줘"
+                        "messageText": "학교정보"
                     },
                     {
                         "label": "버스셔틀",
@@ -104,7 +106,7 @@ def Message():
                 ]
             }
         }
-    elif content == u"학교정보 알려줘":
+    elif content == u"학교정보":
         dataSend = {
             "version": "2.0",
             "template": {
@@ -129,11 +131,6 @@ def Message():
                         "label": "학사일정",
                         "action": "message",
                         "messageText": "학사일정"
-                    },
-                    {
-                        "label": "메인으로 돌아가기",
-                        "action": "message",
-                        "messageText": "시작하기"
                     },
                     {
                         "label": "개발중",
@@ -994,14 +991,96 @@ def Message():
                 ]
             }
         }
-    elif content == u"공지사항 알려줘":
+    elif content == u"공지사항":
+        dataSend = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "basicCard": {
+                            "title": "",
+                            "description": "학교 공지사항과 알림이 공지사항을 알려드릴게요.",
+                            "thumbnail": {
+                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
+                            }
+                        }
+                    }
+                ],
+                "quickReplies": [
+                    {
+                        "label": "수원대 공지사항",
+                        "action": "message",
+                        "messageText": "수원대 공지사항 알려줘"
+                    },
+                    {
+                        "label": "알림이 공지사항",
+                        "action": "message",
+                        "messageText": "알림이 공지사항 알려줘"
+                    }
+                ]
+            }
+        }
+        return jsonify(dataSend)
+    elif content == u"수원대 공지사항 알려줘":
+        dataSend = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header" : {
+                                "title" : "수원대학교 공지사항을 소개합니다.",
+                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=-eu90FRT1mUI5U8ZfBLyu-KBEQXB_1LN"
+                            },
+                            "items" : [
+                                {
+                                    "title": o_Notice.res[0],
+                                    "descrption" : "",
+                                    "imageUrl" : "",
+                                    "link" : {
+                                        "web": ""
+                                    }
+                                },
+                                {
+                                    "title": o_Notice.res[1]
+                                },
+                                {
+                                    "title": o_Notice.res[2]
+                                },
+                                {
+                                    "title": o_Notice.res[3]
+                                },
+                                {
+                                    "title": o_Notice.res[4]
+                                },
+                                {
+                                    "title": o_Notice.res[5]
+                                },
+                                {
+                                    "title": o_Notice.res[6]
+                                },
+                                {
+                                    "title": o_Notice.res[7]
+                                },
+                                {
+                                    "title": o_Notice.res[8]
+                                }
+                            ]
+                         }
+                    }
+                ]
+            }
+        }
+        return jsonify(dataSend)
+
+    elif content == u"알림이 공지사항 알려줘":
         dataSend = {
             "version" : "2.0",
             "template": {
                 "outputs" : [
                     {
                         "simpleText" : {
-                            "text" : "공지사항 개발하고 있습니다."
+                            "text" : s_Notice.data
                         }
                     }
                 ]

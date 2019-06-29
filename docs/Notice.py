@@ -25,3 +25,7 @@ class oNotice:
 
             string = string[nDelimiter + 7 : rDelimiter - 1]
             self.res.append(string)
+
+a = oNotice()
+a.Update()
+print(a.res)
