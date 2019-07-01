@@ -1012,6 +1012,11 @@ def Message():
                         "messageText": "수원대 공지사항 알려줘"
                     },
                     {
+                        "label": "수원대 공지사항2",
+                        "action": "message",
+                        "messageText": "수원대 공지사항2 알려줘"
+                    },
+                    {
                         "label": "알림이 공지사항",
                         "action": "message",
                         "messageText": "알림이 공지사항 알려줘"
@@ -1057,6 +1062,7 @@ def Message():
                             ]
                         }
                     }
+<<<<<<< HEAD
                 ],
                 "quickReplies": [
                     {
@@ -1064,6 +1070,8 @@ def Message():
                         "action": "message",
                         "messageText": "수원대 공지사항2 알려줘"
                     }
+=======
+>>>>>>> 40c86cc5bc5e7a5d4bfb3ba97854c509991c1f8d
                 ]
             }
         }
