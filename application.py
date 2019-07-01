@@ -1012,6 +1012,11 @@ def Message():
                         "messageText": "수원대 공지사항 알려줘"
                     },
                     {
+                        "label": "수원대 공지사항2",
+                        "action": "message",
+                        "messageText": "수원대 공지사항2 알려줘"
+                    },
+                    {
                         "label": "알림이 공지사항",
                         "action": "message",
                         "messageText": "알림이 공지사항 알려줘"
@@ -1034,7 +1039,6 @@ def Message():
                             "items":[
                                 {
                                     "title" : o_Notice.res[0],
-                                    "description" : "http://www.suwon.ac.kr/?menuno=674"
                                 },
                                 {
                                     "title" : o_Notice.res[1]
@@ -1048,6 +1052,55 @@ def Message():
                                 {
                                     "title" : o_Notice.res[4]
                                 },
+                            ],
+                            "buttons": [
+                                {
+                                    "label": "구경가기",
+                                    "action": "webLink",
+                                    "webLinkUrl": "http://www.suwon.ac.kr/?menuno=674"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+        return jsonify(dataSend)
+
+    elif content == u"수원대 공지사항2 알려줘":
+        dataSend = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header" : {
+                                "title" : "수원대학교 공지사항",
+                                "imageUrl" : "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
+                            },
+                            "items":[
+                                {
+                                    "title" : o_Notice.res[5],
+                                },
+                                {
+                                    "title" : o_Notice.res[6]
+                                },
+                                {
+                                    "title" : o_Notice.res[7]
+                                },
+                                {
+                                    "title" : o_Notice.res[8]
+                                },
+                                {
+                                    "title" : o_Notice.res[9]
+                                },
+                            ],
+                            "buttons": [
+                                {
+                                    "label": "구경가기",
+                                    "action": "webLink",
+                                    "webLinkUrl": "http://www.suwon.ac.kr/?menuno=674"
+                                }
                             ]
                         }
                     }
