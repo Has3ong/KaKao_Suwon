@@ -42,7 +42,7 @@ def Threading4h():
     today = datetime.today().weekday()
     if today > 4:
         return 0
-    o_Menu.Update()
+    #o_Menu.Update()
 
 def Threading1h():
     threading.Timer(3600, Threading1h).start()
@@ -1067,6 +1067,16 @@ def Message():
                             ]
                         }
                     }
+<<<<<<< HEAD
+                ],
+                "quickReplies": [
+                    {
+                        "label": "더보기",
+                        "action": "message",
+                        "messageText": "수원대 공지사항2 알려줘"
+                    }
+=======
+>>>>>>> 40c86cc5bc5e7a5d4bfb3ba97854c509991c1f8d
                 ]
             }
         }
