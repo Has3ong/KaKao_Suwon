@@ -1067,7 +1067,6 @@ def Message():
                             ]
                         }
                     }
-<<<<<<< HEAD
                 ],
                 "quickReplies": [
                     {
@@ -1075,8 +1074,6 @@ def Message():
                         "action": "message",
                         "messageText": "수원대 공지사항2 알려줘"
                     }
-=======
->>>>>>> 40c86cc5bc5e7a5d4bfb3ba97854c509991c1f8d
                 ]
             }
         }
