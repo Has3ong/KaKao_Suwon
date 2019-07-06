@@ -1053,11 +1053,6 @@ def Message():
                                     "label": "구경가기",
                                     "action": "webLink",
                                     "webLinkUrl": "http://www.suwon.ac.kr/?menuno=674"
-                                },
-                                {
-                                    "action": "message",
-                                    "label": "공지사항 더보기",
-                                    "messageText": "수원대 공지사항2 알려줘"
                                 }
                             ]
                         }
@@ -1082,7 +1077,7 @@ def Message():
                     {
                         "listCard": {
                             "header" : {
-                                "title" : "수원대학교 공지사항2",
+                                "title" : "수원대학교 공지사항",
                                 "imageUrl" : "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
                             },
                             "items":[
