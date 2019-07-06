@@ -29,3 +29,9 @@ self.OutShuttle_** -> 교외 ** 셔틀  ** -> 지역이름
 
 교내전화번호
 class : oPhoneBOok, object : o_PhoneBook
+
+공지사항
+class : oNotice, object : i_Notice
+
+알림이 공지사항
+class : sNotice, object : s_Notice
