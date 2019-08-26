@@ -10,6 +10,7 @@ class oNotice:
         self.res = []
 
     def Update(self):
+        self.res = []
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         request = requests.get('http://www.suwon.ac.kr/?menuno=674')
         html = request.text

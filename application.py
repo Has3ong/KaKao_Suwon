@@ -27,27 +27,31 @@ o_Calendar = oCalendar()
 o_Notice = oNotice()
 s_Notice = sNotice()
 
-#test
+
 # 1day = 86400, 1hour = 3600
 
 def Threading1d():
     threading.Timer(86400, Threading1d).start()
     o_Notice.Update()
 
+
 def ThreadingWeather():
     threading.Timer(43200, ThreadingWeather).start()
     o_Weather.Update()
+
 
 def Threading4h():
     threading.Timer(14400, Threading4h).start()
     today = datetime.today().weekday()
     if today > 4:
         return 0
-    #o_Menu.Update()
+    # o_Menu.Update()
+
 
 def Threading1h():
     threading.Timer(3600, Threading1h).start()
     o_Dust.Update()
+
 
 @app.route('/keyboard')
 def Keyboard():
@@ -133,10 +137,15 @@ def Message():
                         "messageText": "학사일정"
                     },
                     {
-                        "label": "공지사항",
+                        "label": "편의시설",
                         "action": "message",
-                        "messageText": "공지사항"
+                        "messateText": "편의시설"
                     }
+                    #                    {
+                    #                        "label": "공지사항",
+                    #                        "action": "message",
+                    #                        "messageText": "공지사항"
+                    #                    }
                 ]
             }
         }
@@ -513,6 +522,47 @@ def Message():
                                 {
                                     "title": "12월 학사일정📆",
                                     "description": o_Calendar.Dec
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    elif content == u"편의시설":
+        dataSend = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "carousel": {
+                            "type": "basicCard",
+                            "items": [
+                                {
+                                    "title": "카페🍵",
+                                    "description": "ACE교육관 - 융합문화예술대학 - 사회관",
+                                    "thumbnail": {
+                                        "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Cafe.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9DYWZlLnBuZw==&docker_id=dbagmjvzeyafyjerlac&secure_session_id=WK1r5NHmB5cAiSu-chkrikcJuyS6wE7a"
+                                    },
+                                },
+                                {
+                                    "title": "매점🍩",
+                                    "description": "사회관 - 건강과학대학 - 공과대학\n제4공학관 - ACE교육관 - 융합문화예술대학 - 경상대학",
+                                    "thumbnail": {
+                                        "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Store.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9TdG9yZS5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=WK1r5NHmB5cAiSu-chkrikcJuyS6wE7a"
+                                    },
+                                },
+                                {
+                                    "title": "복사실🖨",
+                                    "description": "도서관 2층 - 인문사회대학 - 공과대학",
+                                    "thumbnail": {
+                                        "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Boksa.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9Cb2tzYS5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=WK1r5NHmB5cAiSu-chkrikcJuyS6wE7a"
+                                    },
+                                },
+                                {
+                                    "title": "Link",
+                                    "description": "http://www.suwon.ac.kr/?menuno=763"
                                 }
                             ]
                         }
@@ -1001,7 +1051,7 @@ def Message():
                             "title": "",
                             "description": "학교 공지사항과 알림이 공지사항을 알려드릴게요.",
                             "thumbnail": {
-                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
+                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Notice.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9Ob3RpY2UucG5n&docker_id=dbagmjvzeyafyjerlac&secure_session_id=IlC0-R5MuofCrIMCXBNPinjASPWLUMb3"
                             }
                         }
                     }
@@ -1028,25 +1078,25 @@ def Message():
                 "outputs": [
                     {
                         "listCard": {
-                            "header" : {
-                                "title" : "수원대학교 공지사항",
-                                "imageUrl" : "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
+                            "header": {
+                                "title": "수원대학교 공지사항",
+                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Banner.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9CYW5uZXIucG5n&docker_id=dbagmjvzeyafyjerlac&secure_session_id=IlC0-R5MuofCrIMCXBNPinjASPWLUMb3"
                             },
-                            "items":[
+                            "items": [
                                 {
-                                    "title" : o_Notice.res[0],
+                                    "title": o_Notice.res[0],
                                 },
                                 {
-                                    "title" : o_Notice.res[1]
+                                    "title": o_Notice.res[1]
                                 },
                                 {
-                                    "title" : o_Notice.res[2]
+                                    "title": o_Notice.res[2]
                                 },
                                 {
-                                    "title" : o_Notice.res[3]
+                                    "title": o_Notice.res[3]
                                 },
                                 {
-                                    "title" : o_Notice.res[4]
+                                    "title": o_Notice.res[4]
                                 },
                             ],
                             "buttons": [
@@ -1077,25 +1127,25 @@ def Message():
                 "outputs": [
                     {
                         "listCard": {
-                            "header" : {
-                                "title" : "수원대학교 공지사항",
-                                "imageUrl" : "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Information.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9JbmZvcm1hdGlvbi5wbmc=&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
+                            "header": {
+                                "title": "수원대학교 공지사항",
+                                "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Banner.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9CYW5uZXIucG5n&docker_id=dbagmjvzeyafyjerlac&secure_session_id=IlC0-R5MuofCrIMCXBNPinjASPWLUMb3"
                             },
-                            "items":[
+                            "items": [
                                 {
-                                    "title" : o_Notice.res[5],
+                                    "title": o_Notice.res[5],
                                 },
                                 {
-                                    "title" : o_Notice.res[6]
+                                    "title": o_Notice.res[6]
                                 },
                                 {
-                                    "title" : o_Notice.res[7]
+                                    "title": o_Notice.res[7]
                                 },
                                 {
-                                    "title" : o_Notice.res[8]
+                                    "title": o_Notice.res[8]
                                 },
                                 {
-                                    "title" : o_Notice.res[9]
+                                    "title": o_Notice.res[9]
                                 },
                             ],
                             "buttons": [
@@ -1114,12 +1164,12 @@ def Message():
 
     elif content == u"알림이 공지사항 알려줘":
         dataSend = {
-            "version" : "2.0",
+            "version": "2.0",
             "template": {
-                "outputs" : [
+                "outputs": [
                     {
-                        "simpleText" : {
-                            "text" : s_Notice.data
+                        "simpleText": {
+                            "text": s_Notice.data
                         }
                     }
                 ]
@@ -1134,7 +1184,7 @@ def Message():
                 "outputs": [
                     {
                         "simpleText": {
-                            "text": "😀😁😂🤣😃😄😅😘🤗🙄😶🙂😍😎☺️😑😐😚😋😊😙🤨🤔😗😉😆🥰🤩😏😣😥😮🤐😯😪🤤😝😜😛😌😴😫😒😓😔😕🙃🤑😲😢😤🤯😬😩😟😞😨😧😖🙁😦☹😭😰😱🥵🥶😳🤪😵🤢🥺😈👻☠☻🥴🤕🤒🥳🤓💀👺🧐🤠😷🤬😇🤭👹🤡🤫🤧😠😡🤮🤥👿👾👽🤖💩😺😸😹🙈😾😿🙀😽😼😻🧑👧👨‍⚕️👩‍⚕️👨‍🌾👨‍🏭👩‍🏭👩‍⚖👩‍🔧👨‍⚖👵👦🧒👴👩‍🏫👨‍🔧👩‍🍳👨‍🏫🧓👶🙊👩👩‍🎓👨‍🍳👩‍🌾👨‍🎓👨🙉👨‍💼👩‍💼👨‍🔬👩‍🔬👨‍💻👩‍💻👨‍🎤👩‍🚀👨‍🚀👩‍✈️👨‍✈️👩‍🎨👨‍🎨👩‍🎤💂‍♂️🕵️‍♀️🕵️‍♂️👮‍♀️👮‍♂️👩‍🚒👨‍🚒🧞‍♀️🧟‍♂️🧟‍♀️🙍‍♂️🙍‍♀️🙎‍♂️🙎‍♀️🙋‍♂️💁‍♀️💁‍♂️🙆‍♀️🙆‍♂️🙅‍♀️🙅🏼‍♂️🤷‍♀️🤷‍♂️🤦‍♀️🤦‍♂️🙇‍♀️🙇‍♂️🙋‍♀️🖤💟💤💚💛💕💞💓🧡❤💗💖💔❣💝💘💌💙💜💣🗯🗨🥼👔💢💬🥽🕶💫💨👓🕳💦💥💭👗🧦🧥🧤🧣👖👕👘👙👚👛👜👜👝🛍👡👠🥿🥾👟👞🎒🧢⛑🎓🎩👒👑👢📿💄💍💎🧶🧵♟♣️🎨🖼♦️♥️🎭🎴♠️🧿🎮🕹🎰🎲🧩🧸🀄🃏🔮🎱🎯🥌🛷🎿🎽🎣⛸⛳🥅🥋🥊🏸🥏🎳🏏🏑🏒🥍🏓🎾🏉🏈🏐🏀🥎⚾️⚽️🥉🎟🎫🎐🎏✨🎈🧨🎎🎗🥈🥇🎁🎍🎇🎆🎋🎀🏅🏆🧧🎊🎉🎑🎖🎃🎄⛄🌂☂️☄🔥☔⛱💧🌊⚡❄☃️🌈🌀🌧🌦🌥🌬🌫🌤⛈🌪🌩⛅☁️🌨🕰⏲⏱⏰🌍🌎🌋⛰🏞🏟🌐🏕🏗🧱🏖🗺🧭🏔🔇🔈🔕🔔🎼🔉🔊🎵📢🎶🎙📣📯🎚🎹🎸🎷📻🎧🎤🎛📞☎️📲📱🥁🎻🎺🖨🖥💻🔌🔋📠📟🔍🔎🔦🏮📔📕📖📗📘💴💰🏷🔖📑🗞📰💲✉📧📨📩📤📥📝🗒📆🖍🖌📅🗂🖊🖋📂📁✒✏💼📦📫📪📬📭📮🗳📌📋✂️🗃🔑🔐🔏📐📊📉📏🔓🔒🖇📈📇📎🗑🗄📍🗓⚔🗜🧪⚗⚙🗡🛠🔩🧲🧰🔧⚒⛏🛡⛓🔗🏹🔨🗝🔫⚖💊💉📡🔭🔬🧬🧫🚪🛏🛋🧺🧹🧷🛒⚰⚱⚱🗿🧻🚽🚿🧼🧽🧴🧴🛁🚸⛔🚫🚳🚳🚭🚯🚱⚠️✅☑⭕✔✖❌❎✳〽️➿➰➗➖➕❗‼❇❗〰️©️®️⁉️❓™️#️⃣*️⃣❕❔💠🔻🔺️🔹️🔸️🔷️🔶️🔘🔲🔳🔴🔵⚪⚫⬜"
+                            "text": "😀😁😂🤣😃😄😅😘🤗🙄😶🙂😍😎☺️😑😐😚😋😊😙🤨🤔😗😉😆🥰🤩😏😣😥😮🤐😯😪🤤😝😜😛😌😴😫😒😓😔😕🙃🤑😲😢😤🤯😬😩😟😞😨😧😖🙁😦☹😭😰😱🥵🥶😳🤪😵🤢🥺😈👻☠☻🥴🤕🤒🥳🤓💀👺🧐🤠😷🤬😇🤭👹🤡🤫🤧😠😡🤮🤥👿👾👽🤖💩😺😸😹🙈😾😿🙀😽😼😻🧑👧👨‍⚕️👩‍⚕️👨‍🌾👨‍🏭👩‍🏭👩‍⚖👩‍🔧👨‍⚖👵👦🧒👴👩‍🏫👨‍🔧👩‍🍳👨‍🏫🧓👶🙊👩👩‍🎓👨‍🍳👩‍🌾👨‍🎓👨🙉👨‍💼👩‍💼👨‍🔬👩‍🔬👨‍💻👩‍💻👨‍🎤👩‍🚀👨‍🚀👩‍✈️👨‍✈️👩‍🎨👨‍🎨👩‍🎤💂‍♂️🕵️‍♀️🕵️‍♂️👮‍♀️👮‍♂️👩‍🚒👨‍🚒🧞‍♀️🧟‍♂️🧟‍♀️🙍‍♂️🙍‍♀️🙎‍♂️🙎‍♀️🙋‍♂️💁‍♀️💁‍♂️🙆‍♀️🙆‍♂️🙅‍♀️🙅🏼‍♂️🤷‍♀️🤷‍♂️🤦‍♀️🤦‍♂️🙇‍♀️🙇‍♂️🙋‍♀️🖤💟💤💚💛💕💞💓🧡❤💗💖💔❣💝💘💌💙💜💣🗯🗨🥼👔💢💬🥽🕶💫💨👓🕳💦💥💭👗🧦🧥🧤🧣👖👕👘👙👚👛👜👜👝🛍👡👠🥿🥾👟👞🎒🧢⛑🎓🎩👒👑👢📿💄💍💎🧶🧵♟♣️🎨🖼♦️♥️🎭🎴♠️🧿🎮🕹🎰🎲🧩🧸🀄🃏🔮🎱🎯🥌🛷🎿🎽🎣⛸⛳🥅🥋🥊🏸🥏🎳🏏🏑🏒🥍🏓🎾🏉🏈🏐🏀🥎⚾️⚽️🥉🎟🎫🎐🎏✨🎈🧨🎎🎗🥈🥇🎁🎍🎇🎆🎋🎀🏅🏆🧧🎊🎉🎑🎖🎃🎄⛄🌂☂️☄🔥☔⛱💧🌊⚡❄☃️🌈🌀🌧🌦🌥🌬🌫🌤⛈🌪🌩⛅☁️🌨🕰⏲⏱⏰🌍🌎🌋⛰🏞🏟🌐🏕🏗🧱🏖🗺🧭🏔🔇🔈🔕🔔🎼🔉🔊🎵📢🎶🎙📣📯🎚🎹🎸🎷📻🎧🎤🎛📞☎️📲📱🥁🎻🎺🖨🖥💻🔌🔋📠📟🔍🔎🔦🏮📔📕📖📗📘💴💰🏷🔖📑🗞📰💲✉📧📨📩📤📥📝🗒📆🖍🖌📅🗂🖊🖋📂📁✒✏💼📦📫📪📬📭📮🗳📌📋✂️🗃🔑🔐🔏📐📊📉📏🔓🔒🖇📈📇📎🗑🗄📍🗓⚔🗜🧪⚗⚙🗡🛠🔩🧲🧰🔧⚒⛏🛡⛓🔗🏹🔨🗝🔫⚖💊💉📡🔭🔬🧬🧫🚪🛏🛋🧺🧹🧷🛒⚰⚱⚱🗿🧻🚽🚿🧼🧽🧴🧴🛁🚸⛔🚫🚳🚳🚭🚯🚱⚠️✅☑⭕✔✖❌❎✳〽️➿➰➗➖➕❗‼❇❗〰️©️®️⁉️❓™️#️⃣*️⃣❕❔💠🔻🔺️🔹️🔸️🔷️🔶️🔘🔲🔳🔴🔵⚪⚫⬜🍡🥟🍩🍪🥠🎂🍰🥡🍦🧁🥧🍧🍨🍫☕🥛🍼🍯🍮🍭🍬🍵🍶🍾🍷🍸🍹🍹🍺🍺🍹🍸🍷🍾🍶🍵🍻🥂🥃🥤🍽🥢🍴🖨"
                         }
                     }
                 ]
@@ -1155,6 +1205,7 @@ def Message():
         }
 
     return jsonify(dataSend)
+
 
 if __name__ == "__main__":
     ThreadingWeather()

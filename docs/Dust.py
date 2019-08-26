@@ -13,8 +13,8 @@ class oDust:
 
     def Update(self):
         API_Key = unquote(
-            '')
-        url = ''
+            'L0d9qiJ%2ByLZWrWY9eXSqNe8e%2BR4XTh5e3qBhzsIj7jNJixsnMqg4pTyIg1FaG%2FFtmz%2Bzir0805EJg%2BciCTQxIQ%3D%3D')
+        url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'
         queryParams = '?' + urlencode(
             {
                 quote_plus('sidoName'): '경기',
