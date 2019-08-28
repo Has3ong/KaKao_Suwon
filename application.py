@@ -6,6 +6,15 @@ from datetime import datetime
 import requests
 import time
 import threading
+import pymongo
+
+ip = 'localhost'
+port = 27017
+connection = pymongo.MongoClient(ip, port)
+database = connection.get_database('Test_Database')
+mongo = database.get_collection('Test_Collection')
+
+
 
 from docs.Menu import oMenu
 from docs.Dust import oDust
@@ -195,7 +204,6 @@ def Message():
                     ]
                 }
             }
-            return jsonify(dataSend)
         dataSend = {
             "version": "2.0",
             "template": {
@@ -252,7 +260,6 @@ def Message():
                     ]
                 }
             }
-            return jsonify(dataSend)
         dataSend = {
             "version": "2.0",
             "template": {
@@ -1070,7 +1077,6 @@ def Message():
                 ]
             }
         }
-        return jsonify(dataSend)
     elif content == u"수원대 공지사항 알려줘":
         dataSend = {
             "version": "2.0",
@@ -1118,7 +1124,6 @@ def Message():
                 ]
             }
         }
-        return jsonify(dataSend)
 
     elif content == u"수원대 공지사항2 알려줘":
         dataSend = {
@@ -1160,7 +1165,6 @@ def Message():
                 ]
             }
         }
-        return jsonify(dataSend)
 
     elif content == u"알림이 공지사항 알려줘":
         dataSend = {
@@ -1175,7 +1179,6 @@ def Message():
                 ]
             }
         }
-        return jsonify(dataSend)
 
     elif content == u"개발중":
         dataSend = {
@@ -1203,7 +1206,7 @@ def Message():
                 ]
             }
         }
-
+    mongo.insert_one(jsonify(dataSend))
     return jsonify(dataSend)
 
 
