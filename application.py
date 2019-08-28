@@ -1206,7 +1206,10 @@ def Message():
                 ]
             }
         }
-    mongo.insert_one(jsonify(dataSend))
+        
+    mongo.insert_one({
+        "contents": content,
+    })
     return jsonify(dataSend)
 
 
