@@ -74,6 +74,10 @@ def Message():
     content = request.get_json()
     content = content['userRequest']
     content = content['utterance']
+    
+    mongo.insert_one({
+        "contents": content,
+    })
 
     if content == u"시작하기":
         dataSend = {
@@ -1206,10 +1210,7 @@ def Message():
                 ]
             }
         }
-        
-    mongo.insert_one({
-        "contents": content,
-    })
+
     return jsonify(dataSend)
 
 
