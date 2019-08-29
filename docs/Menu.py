@@ -117,6 +117,7 @@ class oMenu:
         self.Ama_Wen = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Wen + " 입니다."
         self.Ama_Thu = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Thu + " 입니다."
         self.Ama_Fri = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Fri + " 입니다."
+        self.Amarense.clear()
 
         self.Amarense.append(self.Ama_Mon)
         self.Amarense.append(self.Ama_Tue)

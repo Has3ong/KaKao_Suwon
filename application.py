@@ -212,43 +212,45 @@ def Message():
                     ]
                 }
             }
-        dataSend = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "carousel": {
-                            "type": "basicCard",
-                            "items": [
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 5]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 5 + 1]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 5 + 2]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 5 + 3]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 5 + 4]
-                                }
-                            ]
+        else:
+            dataSend = {
+                "version": "2.0",
+                "template": {
+                    "outputs": [
+                        {
+                            "carousel": {
+                                "type": "basicCard",
+                                "items": [
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Menu[today * 5]
+                                    },
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Menu[today * 5 + 1]
+                                    },
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Menu[today * 5 + 2]
+                                    },
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Menu[today * 5 + 3]
+                                    },
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Menu[today * 5 + 4]
+                                    }
+                                ]
+                            }
                         }
-                    }
-                ]
+                    ]
+                }
             }
-        }
     elif content == u"아마랜스홀 학식 알려주세요":
         today = datetime.today().weekday()
         print(today, datetime.today())
+        print(o_Menu.Amarense)
         if today > 4:
             dataSend = {
                 "version": "2.0",
@@ -268,25 +270,26 @@ def Message():
                     ]
                 }
             }
-        dataSend = {
-            "version": "2.0",
-            "template": {
-                "outputs": [
-                    {
-                        "carousel": {
-                            "type": "basicCard",
-                            "items": [
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Amarense[today]
-                                }
-                            ]
+        else:
+            dataSend = {
+                "version": "2.0",
+                "template": {
+                    "outputs": [
+                        {
+                            "carousel": {
+                                "type": "basicCard",
+                                "items": [
+                                    {
+                                        "title": "",
+                                        "description": o_Menu.Amarense[today]
+                                    }
+                                ]
+                            }
                         }
-                    }
 
-                ]
+                    ]
+                }
             }
-        }
     elif content == u"명령어":
         dataSend = {
             "version": "2.0",
