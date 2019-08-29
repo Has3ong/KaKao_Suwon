@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 
 class oNotice:
-
     def __init__(self):
         self.res = []
 
@@ -26,7 +25,3 @@ class oNotice:
 
             string = string[nDelimiter + 7 : rDelimiter - 1]
             self.res.append(string)
-
-a = oNotice()
-a.Update()
-print(a.res)

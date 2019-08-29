@@ -11,6 +11,7 @@
 - Python 3.6.5
 - Flask 1.0.3
 - beautifulsoup4 4.7.1
+- PyMongo 3.9.0
 
 ## 친구 추가 URL
 

@@ -11,9 +11,8 @@ import pymongo
 ip = 'localhost'
 port = 27017
 connection = pymongo.MongoClient(ip, port)
-database = connection.get_database('Test_Database')
-mongo = database.get_collection('Test_Collection')
-
+database = connection.get_database('Suwon')
+mongo = database.get_collection('Data')
 
 
 from docs.Menu import oMenu
@@ -74,7 +73,7 @@ def Message():
     content = request.get_json()
     content = content['userRequest']
     content = content['utterance']
-    
+
     mongo.insert_one({
         "contents": content,
     })
@@ -180,6 +179,11 @@ def Message():
                                     "action": "message",
                                     "label": "종합강의동",
                                     "messageText": "종합강의동 학식 알려주세요"
+                                },
+                                {
+                                    "action": "message",
+                                    "label": "아마랜스 홀",
+                                    "messageText": "아마랜스홀 학식 알려주세요"
                                 }
                             ]
                         }
@@ -274,15 +278,7 @@ def Message():
                             "items": [
                                 {
                                     "title": "",
-                                    "description": o_Menu.Menu[today * 8 + 5]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 8 + 6]
-                                },
-                                {
-                                    "title": "",
-                                    "description": o_Menu.Menu[today * 8 + 7]
+                                    "description": o_Menu.Amarense[today]
                                 }
                             ]
                         }
