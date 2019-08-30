@@ -8,11 +8,11 @@ import time
 import threading
 import pymongo
 
-ip = 'localhost'
-port = 27017
-connection = pymongo.MongoClient(ip, port)
-database = connection.get_database('Suwon')
-mongo = database.get_collection('Data')
+#ip = 'localhost'
+#port = 27017
+#connection = pymongo.MongoClient(ip, port)
+#database = connection.get_database('Suwon')
+#mongo = database.get_collection('Data')
 
 
 from docs.Menu import oMenu
@@ -53,13 +53,11 @@ def Threading4h():
     today = datetime.today().weekday()
     if today > 4:
         return 0
-    # o_Menu.Update()
-
+    o_Menu.Update()
 
 def Threading1h():
     threading.Timer(3600, Threading1h).start()
     o_Dust.Update()
-
 
 @app.route('/keyboard')
 def Keyboard():
@@ -74,9 +72,7 @@ def Message():
     content = content['userRequest']
     content = content['utterance']
 
-    mongo.insert_one({
-        "contents": content,
-    })
+    #mongo.insert_one({"contents": content,})
 
     if content == u"시작하기":
         dataSend = {

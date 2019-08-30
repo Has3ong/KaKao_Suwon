@@ -87,9 +87,6 @@ class oMenu:
 
         self.Amarense = data
 
-        print(self.Amarense)
-        print(self.JongHab)
-
         self.SettingMenu()
         self.SettingToday()
 
