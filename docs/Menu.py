@@ -3,6 +3,7 @@ import requests
 import os, json, re
 from bs4 import BeautifulSoup
 
+
 class oMenu:
     list = []
 
@@ -15,6 +16,12 @@ class oMenu:
         self.Ama_Wen = ""
         self.Ama_Thu = ""
         self.Ama_Fri = ""
+
+        self.Jong_Mon = []
+        self.Jong_Tue = []
+        self.Jong_Wen = []
+        self.Jong_Thu = []
+        self.Jong_Fri = []
 
     def Update(self):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -88,7 +95,6 @@ class oMenu:
         self.Amarense = data
 
         self.SettingMenu()
-        self.SettingToday()
 
     def SettingMenu(self):
         today = 0
@@ -108,7 +114,6 @@ class oMenu:
                     self.Ama_Fri = " / ".join(i)
                 today = (today + 1) % 7
 
-    def SettingToday(self):
         self.Ama_Mon = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Mon + " 입니다."
         self.Ama_Tue = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Tue + " 입니다."
         self.Ama_Wen = self.Ama_Title + "🍽" + "\n\n오늘의 메뉴는\n" + self.Ama_Wen + " 입니다."
@@ -121,3 +126,39 @@ class oMenu:
         self.Amarense.append(self.Ama_Wen)
         self.Amarense.append(self.Ama_Thu)
         self.Amarense.append(self.Ama_Fri)
+
+        today = 0
+        count = 0
+        print(self.JongHab)
+        for i in self.JongHab:
+            if i == "Mom'sCook" or i == "LittleKitchen" or i == "돈까스코너":
+                self.Jong_Title = i
+            elif i == "중식":
+                pass
+            elif i == "":
+                self.Jong_Title = "교직원 식당"
+
+            else:
+                if i[0] == "Mom'sCook" or i[0] == "LittleKitchen" or i[0] == "돈까스코너":
+                    self.Jong_Title = i[0]
+                elif i[0] == "중식":
+                    pass
+                elif i[0] == "":
+                    self.Jong_Title = "교직원 식당"
+                else:
+                    if today == 0:
+                        temp = " / ".join(i)
+                        self.Jong_Mon.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
+                    if today == 1:
+                        temp = " / ".join(i)
+                        self.Jong_Tue.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
+                    if today == 2:
+                        temp = " / ".join(i)
+                        self.Jong_Wen.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
+                    if today == 3:
+                        temp = " / ".join(i)
+                        self.Jong_Thu.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
+                    if today == 4:
+                        temp = " / ".join(i)
+                        self.Jong_Fri.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
+                    today = (today + 1) % 5

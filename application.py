@@ -219,23 +219,19 @@ def Message():
                                 "items": [
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today * 5]
+                                        "description": o_Menu.Menu[today][0]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today * 5 + 1]
+                                        "description": o_Menu.Menu[today][1]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today * 5 + 2]
+                                        "description": o_Menu.Menu[today][2]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today * 5 + 3]
-                                    },
-                                    {
-                                        "title": "",
-                                        "description": o_Menu.Menu[today * 5 + 4]
+                                        "description": o_Menu.Menu[today][3]
                                     }
                                 ]
                             }
@@ -245,8 +241,6 @@ def Message():
             }
     elif content == u"아마랜스홀 학식 알려주세요":
         today = datetime.today().weekday()
-        print(today, datetime.today())
-        print(o_Menu.Amarense)
         if today > 4:
             dataSend = {
                 "version": "2.0",
