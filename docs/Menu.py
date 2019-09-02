@@ -162,3 +162,9 @@ class oMenu:
                         temp = " / ".join(i)
                         self.Jong_Fri.append(self.Jong_Title + "🍽" + "\n\n오늘의 메뉴는\n" + temp + " 입니다.")
                     today = (today + 1) % 5
+        self.JongHab.clear()
+        self.JongHab.append(self.Jong_Mon)
+        self.JongHab.append(self.Jong_Tue)
+        self.JongHab.append(self.Jong_Wen)
+        self.JongHab.append(self.Jong_Thu)
+        self.JongHab.append(self.Jong_Fri)

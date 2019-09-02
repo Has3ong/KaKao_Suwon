@@ -219,19 +219,19 @@ def Message():
                                 "items": [
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today][0]
+                                        "description": o_Menu.JongHab[today][0]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today][1]
+                                        "description": o_Menu.JongHab[today][1]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today][2]
+                                        "description": o_Menu.JongHab[today][2]
                                     },
                                     {
                                         "title": "",
-                                        "description": o_Menu.Menu[today][3]
+                                        "description": o_Menu.JongHab[today][3]
                                     }
                                 ]
                             }
