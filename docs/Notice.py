@@ -11,7 +11,7 @@ class oNotice:
     def Update(self):
         self.res = []
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        request = requests.get('http://www.suwon.ac.kr/?menuno=674')
+        request = requests.get('https://www.suwon.ac.kr/index.html?menuno=674')
         html = request.text
         soup = BeautifulSoup(html, 'html.parser')
         repo_titles = soup.find('ul', class_='board_basic_list')
