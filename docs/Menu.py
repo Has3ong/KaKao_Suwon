@@ -25,7 +25,7 @@ class oMenu:
 
     def Update(self):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        request = requests.get('http://www.suwon.ac.kr/?menuno=762')
+        request = requests.get('https://www.suwon.ac.kr/index.html?menuno=1792')
         html = request.text
         soup = BeautifulSoup(html, 'html.parser')
         repo_titles = soup.select('div.section > div.subcont_inner > div.contents_table2 > table > tbody > tr > td')
@@ -49,7 +49,6 @@ class oMenu:
                 data.append(tmp[4:tlength - 5].split('<br/>'))
             else:
                 data.append(tmp[4:tlength - 5])
-
         # with open(os.path.join(BASE_DIR, 'result762.json'), 'w+') as json_file:
         # json.dump(data, json_file, indent='\t')
 
@@ -61,7 +60,7 @@ class oMenu:
 
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-        request = requests.get('http://www.suwon.ac.kr/?menuno=1793')
+        request = requests.get('https://www.suwon.ac.kr/index.html?menuno=1793')
         html = request.text
         soup = BeautifulSoup(html, 'html.parser')
         repo_titles = soup.select('div.subcont > div.section > div.subcont_inner > div > table > tbody > tr > td')
@@ -85,9 +84,6 @@ class oMenu:
             else:
                 data.append(tmp[4:tlength - 5])
 
-        # with open(os.path.join(BASE_DIR, 'result1793.json'), 'w+') as json_file:
-        # json.dump(data, json_file, indent='\t')
-
         header = request.headers
         status = request.status_code
         is_HTTP_OK = request.ok
@@ -97,6 +93,7 @@ class oMenu:
         self.SettingMenu()
 
     def SettingMenu(self):
+        print(self.Amarense)
         today = 0
         for i in self.Amarense:
             if i == "Mom'sCook" or i == "LittleKitchen" or i == "돈까스코너":
