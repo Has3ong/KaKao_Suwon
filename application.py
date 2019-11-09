@@ -67,7 +67,9 @@ def Keyboard():
 
 @app.route('/message', methods=['POST'])
 def Message():
+    print(request.get_json())
     content = request.get_json()
+    print(content)
     content = content['userRequest']
     content = content['utterance']
 
