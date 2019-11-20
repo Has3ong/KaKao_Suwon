@@ -27,7 +27,8 @@ class oDust:
         request.get_method = lambda: 'GET'
         response_body = urlopen(request).read().decode('utf-8')
 
-        length = response_body.find('<stationName>고색동</stationName>')
+        length = response_body.find('<stationName>정자동</stationName>')
+
         response_body = response_body[length:]
 
         start = response_body.find('<pm10Value>')
@@ -41,6 +42,8 @@ class oDust:
         self.pm25 = response_body[start + 11: end]
         self.pm10_emo = ""
         self.pm25_emo = ""
+
+        print(self.pm10)
 
         if self.pm10 == '-':
             self.pm10_emo = " ❌"
