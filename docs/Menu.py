@@ -93,7 +93,7 @@ class oMenu:
         self.SettingMenu()
 
     def SettingMenu(self):
-        print(self.Amarense)
+        #print(self.Amarense)
         today = 0
         for i in self.Amarense:
             if i == "Mom'sCook" or i == "LittleKitchen" or i == "돈까스코너":
@@ -126,7 +126,7 @@ class oMenu:
 
         today = 0
         count = 0
-        print(self.JongHab)
+        #print(self.JongHab)
         for i in self.JongHab:
             if i == "Mom'sCook" or i == "LittleKitchen" or i == "돈까스코너":
                 self.Jong_Title = i

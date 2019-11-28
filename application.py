@@ -26,13 +26,21 @@ from docs.sNotice import sNotice
 
 app = Flask(__name__)
 
+print("Menu")
 o_Menu = oMenu()
+print("Weather")
 o_Weather = oWeather()
+print("Dust")
 o_Dust = oDust()
+print("PhoneBook")
 o_PhoneBook = oPhoneBook()
+print("BusShuttle")
 o_BusShuttle = oBusShuttle()
+print("Calendar")
 o_Calendar = oCalendar()
+print("Notice")
 o_Notice = oNotice()
+print("sNotice")
 s_Notice = sNotice()
 
 
@@ -67,13 +75,13 @@ def Keyboard():
 
 @app.route('/message', methods=['POST'])
 def Message():
-    print(request.get_json())
     content = request.get_json()
-    print(content)
     content = content['userRequest']
     content = content['utterance']
-
+    
+    
     data = str(datetime.now().date())
+    """
     try:
         mongo.insert_one(
             {
@@ -83,6 +91,7 @@ def Message():
         )
     except Exception:
         print("MongoDB Connection Failed")
+    """
 
     if content == u"시작하기":
         dataSend = {
@@ -1218,4 +1227,4 @@ if __name__ == "__main__":
     Threading1d()
     Threading1h()
     Threading4h()
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=8888)

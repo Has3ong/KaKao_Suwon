@@ -45,7 +45,7 @@ class oDust:
 
         print(self.pm10)
 
-        if self.pm10 == '-':
+        if self.pm10 == '-' or self.pm10 == '':
             self.pm10_emo = " ❌"
         else:
             if int(self.pm10) <= 30:
@@ -57,7 +57,7 @@ class oDust:
             else:
                 self.pm10_emo = " 👿"
 
-        if self.pm25 == '-':
+        if self.pm25 == '-' or self.pm25 == '':
             self.pm25_emo = " ❌"
         else:
             if int(self.pm25) <= 15:
