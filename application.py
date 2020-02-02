@@ -417,7 +417,7 @@ def Message():
         }
     elif content == u"종강일 계산해줘":
         nowtime = datetime.now()
-        endtime = datetime(2019, 12, 16, 0, 0, 0)
+        endtime = datetime(2020, 6, 22, 0, 0, 0)
 
         d_days = (endtime - nowtime).days
         dataSend = {
