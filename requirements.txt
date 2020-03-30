@@ -16,7 +16,7 @@ pycrypto==2.6.1
 pygobject==3.26.1
 pymongo==3.9.0
 pyxdg==0.25
-requests==2.18.4
+requests==2.20.0
 SecretStorage==2.3.1
 six==1.11.0
 soupsieve==1.9.3
