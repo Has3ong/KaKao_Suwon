@@ -27,7 +27,7 @@ from docs.sNotice import sNotice
 app = Flask(__name__)
 
 print("Menu")
-o_Menu = oMenu()
+#o_Menu = oMenu()
 print("Weather")
 o_Weather = oWeather()
 print("Dust")
@@ -61,7 +61,7 @@ def Threading4h():
     today = datetime.today().weekday()
     if today > 4:
         return 0
-    o_Menu.Update()
+    #o_Menu.Update()
 
 def Threading1h():
     threading.Timer(3600, Threading1h).start()
@@ -188,19 +188,7 @@ def Message():
                             "description": "종합강의동, 아마랜스 홀중 선택해주세요. \n\n링크 : http://www.suwon.ac.kr/?menuno=762 \n링크 : http://www.suwon.ac.kr/?menuno=1793",
                             "thumbnail": {
                                 "imageUrl": "https://proxy.goorm.io//service/5ccda9890e70de7aa094ede1_dbagmjvzeyafyjerlac.run.goorm.io/9080//file/load/App_Menu.png?path=d29ya3NwYWNlJTJGU3V3b25Cb3QlMkZJbWFnZSUyRkFwcF9NZW51LnBuZw==&docker_id=dbagmjvzeyafyjerlac&secure_session_id=ukvGkLMs6b_IfPgimh-pjWVtciFqdpSu"
-                            },
-                            "buttons": [
-                                {
-                                    "action": "message",
-                                    "label": "종합강의동",
-                                    "messageText": "종합강의동 학식 알려주세요"
-                                },
-                                {
-                                    "action": "message",
-                                    "label": "아마랜스 홀",
-                                    "messageText": "아마랜스홀 학식 알려주세요"
-                                }
-                            ]
+                            }
                         }
                     }
                 ]
@@ -1221,6 +1209,21 @@ def Message():
 
     return jsonify(dataSend)
 
+
+"""
+"buttons": [
+                                {
+                                    "action": "message",
+                                    "label": "종합강의동",
+                                    "messageText": "종합강의동 학식 알려주세요"
+                                },
+                                {
+                                    "action": "message",
+                                    "label": "아마랜스 홀",
+                                    "messageText": "아마랜스홀 학식 알려주세요"
+                                }
+                            ]
+"""
 
 if __name__ == "__main__":
     ThreadingWeather()
